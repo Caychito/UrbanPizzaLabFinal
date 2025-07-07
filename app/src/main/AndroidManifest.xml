@@ -13,12 +13,17 @@
         android:theme="@style/Theme.UrbanPizzaLab"
         tools:targetApi="31">
         <activity
+            android:name=".view.pago"
+            android:exported="false" />
+        <activity
+            android:name=".view.perfil"
+            android:exported="false" />
+        <activity
             android:name=".view.recuperarcontra"
             android:exported="false" />
         <activity
             android:name=".view.categoria"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".view.carrito"
             android:exported="true" />
@@ -30,7 +35,7 @@
             android:exported="true" />
         <activity
             android:name=".view.login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
