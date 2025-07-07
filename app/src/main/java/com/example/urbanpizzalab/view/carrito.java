@@ -1,5 +1,6 @@
 package com.example.urbanpizzalab.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -54,7 +55,8 @@ public class carrito extends AppCompatActivity {
         // 🟠 Botón de pagar
         btnPagar.setOnClickListener(v -> {
             // Aquí iría tu lógica para procesar el pago
-            // Por ejemplo: enviar datos, vaciar carrito, mostrar mensaje, etc.
+            Intent intent = new Intent(carrito.this, pago.class);
+            startActivity(intent);
         });
     }
 
