@@ -99,6 +99,7 @@ public class pago extends AppCompatActivity {
         int idMetodoPago = obtenerIDMetodoPago(metodoSeleccionado);
 
         String fechaActual = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
         Pedido nuevoPedido = new Pedido(idUsuario, fechaActual, "Pendiente", idMetodoPago);
 
         long idPedidoInsertado = pedidoController.insertarPedido(nuevoPedido);
