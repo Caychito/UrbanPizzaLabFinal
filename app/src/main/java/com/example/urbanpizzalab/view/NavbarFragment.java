@@ -1,5 +1,7 @@
 package com.example.urbanpizzalab.view;
 
+import static android.content.Intent.getIntent;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +20,8 @@ public class NavbarFragment extends Fragment {
         // Constructor vacío requerido
     }
 
+    String Email;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -29,6 +33,10 @@ public class NavbarFragment extends Fragment {
         ImageButton btnInicio = view.findViewById(R.id.btnInicio);
         ImageButton btnPerfil = view.findViewById(R.id.btnPerfil);
         View fabCarrito = view.findViewById(R.id.fabCarrito);
+
+        if (getArguments() != null) {
+            Email = getArguments().getString("Email");
+        }
 
         btnInicio.setOnClickListener(v -> {
             Intent intent = new Intent(requireContext(), MainActivity.class);
@@ -42,6 +50,7 @@ public class NavbarFragment extends Fragment {
 
         btnPerfil.setOnClickListener(v -> {
             Intent intent = new Intent(requireContext(), perfil.class);
+            intent.putExtra("Email", Email);
             startActivity(intent);
         });
 

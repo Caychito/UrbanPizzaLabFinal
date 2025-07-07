@@ -1,6 +1,9 @@
 package com.example.urbanpizzalab.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,13 +46,22 @@ public class ResumenPedidoAdapter extends RecyclerView.Adapter<ResumenPedidoAdap
         double subtotal = item.getCantidad() * producto.getPrecio();
         holder.txtSubtotal.setText(String.format("Subtotal: S/ %.2f", subtotal));
 
-        // Si deseas cargar imagen desde URL con Glide (solo si lo tienes agregado):
-        /*
-        Glide.with(context)
-            .load(producto.getImagenURL())
-            .placeholder(R.drawable.ic_launcher_foreground)
-            .into(holder.imgProducto);
-        */
+        String base64String = producto.getImagenURL();
+
+        Bitmap bitmap = base64ToBitmap(base64String);
+        if (bitmap != null) {
+            holder.imgProducto.setImageBitmap(bitmap);
+        }
+    }
+
+    private Bitmap base64ToBitmap(String base64Str) {
+        try {
+            byte[] decodedBytes = Base64.decode(base64Str, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

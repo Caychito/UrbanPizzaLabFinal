@@ -1,5 +1,6 @@
 package com.example.urbanpizzalab.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -123,10 +124,13 @@ public class pago extends AppCompatActivity {
         }
 
         // Limpiamos carrito global
-        CarritoGlobal.listaCarrito.clear();
+        CarritoGlobal.vaciar();
         Toast.makeText(this, "¡Pedido registrado con éxito!", Toast.LENGTH_LONG).show();
 
-        finish(); // Volvemos o puedes redirigir a otra pantalla si prefieres
+
+        Intent intent = new Intent(pago.this, MainActivity.class);
+        startActivity(intent); // Volvemos o puedes redirigir a otra pantalla si prefieres
+        finish();
     }
 
     private int obtenerIDMetodoPago(String nombreMetodo) {

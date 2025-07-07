@@ -152,6 +152,14 @@ public class detalle_producto extends AppCompatActivity {
                     nuevoId = baseIdProd + 2;
                 } else if (tamañoSeleccionado.equalsIgnoreCase("Pequeña")) {
                     nuevoId = baseIdProd;
+                } else if (tamañoSeleccionado.equalsIgnoreCase("Familiar")) {
+                    nuevoId = baseIdProd + 1;
+                } else if (tamañoSeleccionado.equalsIgnoreCase("Individual")) {
+                    nuevoId = baseIdProd;
+                } else if (tamañoSeleccionado.equalsIgnoreCase("Personal")) {
+                    nuevoId = baseIdProd;
+                } else if (tamañoSeleccionado.equalsIgnoreCase("1L")) {
+                    nuevoId = baseIdProd + 1;
                 }
 
                 cargarProducto(nuevoId); // Recargar datos con el nuevo ID

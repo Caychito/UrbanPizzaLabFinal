@@ -26,7 +26,6 @@ public class categoria extends AppCompatActivity {
     private RecyclerView recyclerProducto;
     private ProductoAdapter productoAdapter;
     private ProductoController productoController;
-    private CardView CV_PRODUCTO;
     int idcat;
 
     @Override
@@ -44,7 +43,6 @@ public class categoria extends AppCompatActivity {
                 .replace(R.id.navbarContainer, new NavbarFragment())
                 .commit();
         recyclerProducto = findViewById(R.id.rcl_Productos);
-        CV_PRODUCTO = findViewById(R.id.cv_producto);
         productoController = new ProductoController(this);
 
         idcat = getIntent().getIntExtra("idCategoria", 0);

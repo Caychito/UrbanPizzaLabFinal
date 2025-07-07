@@ -83,5 +83,29 @@ public class UsuarioController extends bdUrban {
         return contrasenia;
     }
 
+    public Usuario obtenerUsuarioPorEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT ID_Usuario, Nombre, Apellido, Email, Contrasenia, DNI FROM Usuario WHERE Email = ?",
+                new String[]{email}
+        );
+
+        Usuario usuario = null;
+
+        if (cursor.moveToFirst()) {
+            usuario = new Usuario(
+                    cursor.getInt(0),         // ID_Usuario
+                    cursor.getString(1),      // Nombre
+                    cursor.getString(2),      // Apellido
+                    cursor.getString(3),      // Email
+                    cursor.getString(4),      // Contrasenia
+                    cursor.getInt(5)          // DNI
+            );
+        }
+
+        cursor.close();
+        return usuario;
+    }
+
 
 }

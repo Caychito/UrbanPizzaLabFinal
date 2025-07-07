@@ -29,23 +29,30 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button Inicio;
-
     CardView pizzas, bebidas, platos;
+    String Email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        Email = getIntent().getStringExtra("Email");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        NavbarFragment navbarFragment = new NavbarFragment();
+        Bundle args = new Bundle();
+        args.putString("Email", Email);
+        navbarFragment.setArguments(args);
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.navbarContainer, new NavbarFragment())
+                .replace(R.id.navbarContainer, navbarFragment)
                 .commit();
+
         bebidas = findViewById(R.id.cv_bebidas);
         pizzas = findViewById(R.id.cv_pizzas);
         platos = findViewById(R.id.cv_platos);

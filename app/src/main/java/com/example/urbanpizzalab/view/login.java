@@ -56,6 +56,7 @@ public class login extends AppCompatActivity {
             if (valido) {
                 Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(login.this, MainActivity.class);
+                intent.putExtra("Email", email);
                 startActivity(intent);
                 finish(); // Cierra el Login
 
