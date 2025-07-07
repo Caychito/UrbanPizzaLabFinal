@@ -46,4 +46,32 @@ public class ProductoController extends bdUrban {
         return datos;
     }
 
+    public List<Producto> ListarProductos(int id_categoria){
+        bdUrban x = new ProductoController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        List<Producto> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT * FROM Producto GROUP BY Nombre", null);
+
+        if (act.moveToFirst()){
+            do{
+                datos.add(new Producto (Integer.parseInt(act.getString(0)),
+                        act.getString(1),
+                        act.getString(2),
+                        Double.parseDouble(act.getString(3)),
+                        Integer.parseInt(act.getString(4)),
+                        act.getString(5),
+                        act.getString(6),
+                        Integer.parseInt(act.getString(7))
+                ));
+            }while(act.moveToNext());
+        }
+        act.close();
+        return datos;
+    }
+
+
+
 }

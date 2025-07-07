@@ -48,8 +48,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextText"
+    <AutoCompleteTextView
+        android:id="@+id/txt_buscar"
         android:layout_width="351dp"
         android:layout_height="47dp"
         android:layout_marginTop="4dp"
@@ -60,6 +60,7 @@
         android:fontFamily="@font/adlam_display"
         android:hint="Buscar"
         android:inputType="text"
+        android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +75,7 @@
         app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText">
+        app:layout_constraintTop_toBottomOf="@+id/txt_buscar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -305,6 +306,7 @@
         android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameCarrusel"
         app:layout_constraintVertical_bias="1.0">

@@ -43,15 +43,6 @@
                 android:text="Con piña, jamón y queso."
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/txtPrecioProducto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="6dp"
-                android:text="S/ 18.90"
-                android:textColor="#FF5722"
-                android:textSize="16sp" />
-
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
