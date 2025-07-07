@@ -1,5 +1,8 @@
 package com.example.urbanpizzalab.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +49,11 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
         holder.tvTamaño.setText("Tamaño: " + producto.getTamaño());
         holder.tvPrecio.setText("Precio: S/." + producto.getPrecio());
         holder.tvCantidad.setText(String.valueOf(item.getCantidad()));
-
+        String base64String = producto.getImagenURL();
+        Bitmap bitmap = base64ToBitmap(base64String);
+        if (bitmap != null) {
+            holder.ivImagen.setImageBitmap(bitmap);
+        }
         // Aquí carga tu imagen si tienes URL o recurso local
         // holder.ivImagen.setImageResource(...) o usa Glide/Picasso
 
@@ -78,6 +85,15 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
             notifyItemRangeChanged(position, carritoItems.size());
             listener.onCantidadChanged();
         });
+    }
+    private Bitmap base64ToBitmap(String base64Str) {
+        try {
+            byte[] decodedBytes = Base64.decode(base64Str, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

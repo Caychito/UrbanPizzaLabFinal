@@ -26,7 +26,13 @@
             android:exported="true" />
         <activity
             android:name=".view.carrito"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.registro"
             android:exported="true" />
@@ -35,13 +41,8 @@
             android:exported="true" />
         <activity
             android:name=".view.login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".view.detalle_producto"
             android:exported="true" />
