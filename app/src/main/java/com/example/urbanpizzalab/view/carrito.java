@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.urbanpizzalab.R;
 import com.example.urbanpizzalab.adapter.CarritoAdapter;
+import com.example.urbanpizzalab.model.CarritoGlobal;
 import com.example.urbanpizzalab.model.ItemCarrito;
 import com.example.urbanpizzalab.model.Producto;
 
@@ -43,7 +44,8 @@ public class carrito extends AppCompatActivity {
         cargarItemsPrueba();
 
         // ⚡ Configurar Adapter
-        carritoAdapter = new CarritoAdapter(listaCarrito, () -> calcularTotal());
+        listaCarrito = CarritoGlobal.listaCarrito;
+        carritoAdapter = new CarritoAdapter(listaCarrito, this::calcularTotal);
         recyclerCarrito.setLayoutManager(new LinearLayoutManager(this));
         recyclerCarrito.setAdapter(carritoAdapter);
 

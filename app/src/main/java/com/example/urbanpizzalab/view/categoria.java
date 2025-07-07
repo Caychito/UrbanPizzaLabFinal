@@ -27,6 +27,7 @@ public class categoria extends AppCompatActivity {
     private ProductoAdapter productoAdapter;
     private ProductoController productoController;
     private CardView CV_PRODUCTO;
+    int idcat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,9 @@ public class categoria extends AppCompatActivity {
         CV_PRODUCTO = findViewById(R.id.cv_producto);
         productoController = new ProductoController(this);
 
-        List<Producto> ListaProducto = productoController.MostrarProductos(1);
+        idcat = getIntent().getIntExtra("idCategoria", 0);
+
+        List<Producto> ListaProducto = productoController.MostrarProductos(idcat);
         productoAdapter = new ProductoAdapter(this,ListaProducto);
         recyclerProducto.setLayoutManager(new LinearLayoutManager(this));
         recyclerProducto.setAdapter(productoAdapter);

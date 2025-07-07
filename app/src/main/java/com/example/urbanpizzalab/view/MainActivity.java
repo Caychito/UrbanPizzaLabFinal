@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button Inicio;
 
+    CardView pizzas, bebidas, platos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,29 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        bebidas = findViewById(R.id.cv_bebidas);
+        pizzas = findViewById(R.id.cv_pizzas);
+        platos = findViewById(R.id.cv_platos);
+
+        bebidas.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, categoria.class);
+            intent.putExtra("idCategoria", 3);
+            startActivity(intent);
+        });
+
+        pizzas.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, categoria.class);
+            intent.putExtra("idCategoria", 1);
+            startActivity(intent);
+        });
+
+        platos.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, categoria.class);
+            intent.putExtra("idCategoria", 2);
+            startActivity(intent);
+        });
+
 
         AutoCompleteTextView txtBuscar = findViewById(R.id.txt_buscar);
 

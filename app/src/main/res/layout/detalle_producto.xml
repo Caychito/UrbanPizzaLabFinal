@@ -60,8 +60,8 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="100dp"
-        android:layout_height="41dp"
+        android:layout_width="172dp"
+        android:layout_height="47dp"
         android:fontFamily="@font/adlam_display"
         android:text="S/. 10"
         android:textColor="#FF5722"
@@ -100,7 +100,6 @@
         android:id="@+id/imageView9"
         android:layout_width="298dp"
         android:layout_height="275dp"
-        android:background="@drawable/banner_naranja"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

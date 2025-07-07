@@ -159,6 +159,7 @@
 
         <!-- Categoría 1: Pizzas -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_pizzas"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_marginEnd="12dp"
@@ -191,6 +192,7 @@
 
         <!-- Categoría 2: Platos -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_platos"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_marginEnd="12dp"
@@ -223,6 +225,7 @@
 
         <!-- Categoría 3: Bebidas -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_bebidas"
             android:layout_width="100dp"
             android:layout_height="120dp"
             app:cardCornerRadius="12dp"
@@ -289,7 +292,7 @@
         android:layout_width="365dp"
         android:layout_height="119dp"
         android:layout_margin="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
