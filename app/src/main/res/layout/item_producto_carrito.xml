@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <!-- Imagen del producto -->
+    <ImageView
+        android:id="@+id/ivImagenProducto"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="Imagen producto"
+        android:layout_marginEnd="12dp" />
+
+    <!-- Información del producto -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvNombreProducto"
+            android:text="Pizza Margarita"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvTamañoProducto"
+            android:text="Tamaño: Mediana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvPrecioProducto"
+            android:text="Precio: $10.99"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Contador de cantidad -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/tvRestar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/adlam_display"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvCantidad"
+                android:text="1"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvSumar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/boton_redondo"
+                android:fontFamily="@font/adlam_display"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón eliminar -->
+    <TextView
+        android:id="@+id/tvEliminar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/boton_redondo"
+        android:fontFamily="@font/adlam_display"
+        android:gravity="center"
+        android:text="X"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+</LinearLayout>
