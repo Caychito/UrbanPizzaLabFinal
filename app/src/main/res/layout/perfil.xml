@@ -1,171 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutPerfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:card_view="http://schemas.android.com/tools">
+    android:background="#FFFFFF">
 
-    <LinearLayout
+    <!-- CONTENIDO SCROLLABLE -->
+    <ScrollView
+        android:id="@+id/scrollPerfil"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navbarContainer">
 
-        <!-- Título -->
-
-        <!-- CardView con campos -->
-
-        <TextView
-            android:id="@+id/txtTituloPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/adlam_display"
-            android:paddingTop="20dp"
-            android:text="Mi Perfil"
-            android:textColor="#FF5722"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardDatosPerfil"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="24dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="8dp"
-            card_view:cardCornerRadius="12dp"
-            card_view:cardElevation="8dp">
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
 
-            <LinearLayout
+            <!-- Título -->
+            <TextView
+                android:id="@+id/txtTituloPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/adlam_display"
+                android:text="Mi Perfil"
+                android:textColor="#FF5722"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp" />
+
+            <!-- CARDVIEW CON LOS DATOS -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                android:padding="24dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
 
-                <!-- Nombre -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="10dp"
-                    android:text="Nombre:"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etNombre"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/adlam_display"
-                    android:padding="5dp"
-                    android:textSize="22sp" />
+                    android:orientation="vertical">
 
-                <!-- Apellido -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingLeft="10dp"
-                    android:text="Apellido:"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    <!-- Nombre -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/adlam_display"
+                        android:text="Nombre:"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="10dp" />
 
-                <EditText
-                    android:id="@+id/etApellido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingStart="5dp"
-                    android:textSize="22sp" />
+                    <EditText
+                        android:id="@+id/etNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/adlam_display"
+                        android:padding="5dp" />
 
-                <!-- Email -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingLeft="10dp"
-                    android:text="Email:"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    <!-- Apellido -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/adlam_display"
+                        android:paddingLeft="10dp"
+                        android:text="Apellido:"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/etEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingStart="5dp"
-                    android:textSize="22sp" />
+                    <EditText
+                        android:id="@+id/etApellido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/adlam_display"
+                        android:padding="5dp" />
 
-                <!-- DNI -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingLeft="10dp"
-                    android:text="DNI:"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    <!-- Email -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/adlam_display"
+                        android:paddingLeft="10dp"
+                        android:text="Email:"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/etDNI"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:fontFamily="@font/adlam_display"
-                    android:paddingStart="5dp"
-                    android:textSize="22sp" />
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/adlam_display"
+                        android:padding="5dp" />
 
-                <!-- Botón para cambiar contraseña -->
-                <Button
-                    android:id="@+id/btnCambiarContrasenia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
-                    android:backgroundTint="#FF5722"
-                    android:fontFamily="@font/adlam_display"
-                    android:text="Cambiar Contraseña"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    <!-- DNI -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/adlam_display"
+                        android:paddingLeft="10dp"
+                        android:text="DNI:"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/imgDecorativa"
-                    android:layout_width="131dp"
-                    android:layout_height="143dp"
-                    android:layout_gravity="center"
-                    android:contentDescription="Imagen decorativa"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/logo_gozu" />
+                    <EditText
+                        android:id="@+id/etDNI"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/adlam_display"
+                        android:padding="5dp" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    <!-- Botón cambiar contraseña -->
+                    <Button
+                        android:id="@+id/btnCambiarContrasenia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:backgroundTint="#FF5722"
+                        android:text="Cambiar Contraseña"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/adlam_display" />
 
-                    <include layout="@layout/item_navbar" />
-                </FrameLayout>
+                    <!-- Imagen decorativa -->
+                    <ImageView
+                        android:id="@+id/imgDecorativa"
+                        android:layout_width="131dp"
+                        android:layout_height="143dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/logo_gozu"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Imagen decorativa" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Imagen centrada al final -->
-
-    </LinearLayout>
-
-</ScrollView>
+    <!-- NAVBAR FIJO -->
+    <FrameLayout
+        android:id="@+id/navbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

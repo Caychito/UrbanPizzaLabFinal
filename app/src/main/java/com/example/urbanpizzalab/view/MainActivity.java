@@ -42,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.navbarContainer, new NavbarFragment())
+                .commit();
         bebidas = findViewById(R.id.cv_bebidas);
         pizzas = findViewById(R.id.cv_pizzas);
         platos = findViewById(R.id.cv_platos);

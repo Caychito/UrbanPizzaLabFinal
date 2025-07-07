@@ -39,7 +39,10 @@ public class categoria extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.navbarContainer, new NavbarFragment())
+                .commit();
         recyclerProducto = findViewById(R.id.rcl_Productos);
         CV_PRODUCTO = findViewById(R.id.cv_producto);
         productoController = new ProductoController(this);

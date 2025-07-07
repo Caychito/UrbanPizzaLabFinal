@@ -52,7 +52,10 @@ public class detalle_producto extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.navbarContainer, new NavbarFragment())
+                .commit();
         Tamanio = findViewById(R.id.spn_tamanio);
         Titulo = findViewById(R.id.titletxt);
         Precio = findViewById(R.id.textView12);

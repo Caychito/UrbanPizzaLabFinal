@@ -7,21 +7,13 @@
     android:layout_height="match_parent">
 
     <FrameLayout
-        android:id="@+id/contenedorFooter"
-        android:layout_width="410dp"
-        android:layout_height="93dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="4dp"
+        android:id="@+id/navbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameCarrusel"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <include layout="@layout/item_navbar" />
-
-    </FrameLayout>
 
     <Button
         android:id="@+id/btnAñadirCarrito"
