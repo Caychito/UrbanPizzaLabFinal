@@ -1,6 +1,7 @@
 package com.example.urbanpizzalab.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.urbanpizzalab.R;
 import com.example.urbanpizzalab.model.Producto;
 import com.example.urbanpizzalab.model.Producto;
+import com.example.urbanpizzalab.view.detalle_producto;
 
 import java.util.List;
 
@@ -48,6 +50,12 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         if (bitmap != null) {
             holder.imgProducto.setImageBitmap(bitmap);
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, detalle_producto.class);
+            intent.putExtra("idProducto", producto.getID_Producto());
+            context.startActivity(intent);
+        });
     }
 
     private Bitmap base64ToBitmap(String base64Str) {
