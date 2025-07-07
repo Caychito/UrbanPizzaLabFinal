@@ -19,7 +19,7 @@ import com.example.urbanpizzalab.controller.UsuarioController;
 public class login extends AppCompatActivity {
     EditText Lemail, Lpass;
     Button login;
-    TextView regis;
+    TextView regis, recuperarcontra;
     UsuarioController usuarioController;
 
     @Override
@@ -36,7 +36,9 @@ public class login extends AppCompatActivity {
         Lemail = findViewById(R.id.txt_email_login);
         Lpass = findViewById(R.id.txt_contraseña_login);
         login = findViewById(R.id.btn_login);
+        recuperarcontra = findViewById(R.id.btn_recuperarcontra);
         regis = findViewById(R.id.text_button_Registrate_login);
+
         // Inicializar controlador
         usuarioController = new UsuarioController(this);
         // Acción al presionar "Iniciar Sesión"
@@ -65,6 +67,12 @@ public class login extends AppCompatActivity {
         // Acción para ir a la pantalla de registro
         regis.setOnClickListener(v -> {
             Intent intent = new Intent(login.this, registro.class);
+            startActivity(intent);
+        });
+
+        // Acción para ir a recuperar contraseña
+        recuperarcontra.setOnClickListener(v -> {
+            Intent intent = new Intent(login.this, recuperarcontra.class);
             startActivity(intent);
         });
 

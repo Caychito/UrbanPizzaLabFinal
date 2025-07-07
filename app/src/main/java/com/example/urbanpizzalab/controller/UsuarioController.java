@@ -1,5 +1,6 @@
 package com.example.urbanpizzalab.controller;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -48,11 +49,23 @@ public class UsuarioController extends bdUrban {
     }
 
     // UPDATE contraseña
-    public void actualizarContrasenia(String email, String nuevaContrasenia) {
+    public boolean actualizarContrasenia(String dni, String nuevaContrasenia) {
         SQLiteDatabase db = this.getWritableDatabase();
-        if (db != null) {
-            db.execSQL("UPDATE " + tUsuario + " SET Contrasenia = '" + nuevaContrasenia + "' WHERE Email = '" + email + "'");
-            db.close();
+
+        // Verifica si el usuario existe con ese DNI
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuario WHERE DNI = ?", new String[]{dni});
+
+        if (cursor.moveToFirst()) {
+            // Actualiza la contraseña
+            ContentValues valores = new ContentValues();
+            valores.put("Contrasenia", nuevaContrasenia);
+
+            int filas = db.update("Usuario", valores, "DNI = ?", new String[]{dni});
+            cursor.close();
+            return filas > 0;
+        } else {
+            cursor.close();
+            return false;
         }
     }
 
@@ -69,4 +82,6 @@ public class UsuarioController extends bdUrban {
         cursor.close();
         return contrasenia;
     }
+
+
 }

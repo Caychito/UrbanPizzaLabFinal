@@ -53,6 +53,9 @@ public class bdUrban  extends SQLiteOpenHelper {
                 "Contrasenia VARCHAR(50), " +
                 "DNI INTEGER)");
 
+        db.execSQL("INSERT INTO Usuario (Nombre, Apellido, Email, Contrasenia, DNI) " +
+                "VALUES ('Alberth', 'Caycho', 'Caycho123@gmail.com', 'Caycho', 75344451);");
+
         // Tabla Metodo_Pago
         db.execSQL("CREATE TABLE Metodo_Pago (" +
                 "ID_MetodoPago INTEGER PRIMARY KEY AUTOINCREMENT, " +
