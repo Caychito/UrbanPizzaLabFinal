@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 1. Traer productos de la BD
         ProductoController controller = new ProductoController(this);
-        List<Producto> listaProductos = controller.ListarProductos(0); // puedes ignorar el ID_Categoria aquí
+        List<Producto> listaProductos = controller.ListarProductos(); // puedes ignorar el ID_Categoria aquí
 
         // 2. Crear adaptador personalizado
         BusquedaProductoAdapter adapter = new BusquedaProductoAdapter(this, listaProductos);

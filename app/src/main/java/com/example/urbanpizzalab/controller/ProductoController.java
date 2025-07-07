@@ -27,7 +27,7 @@ public class ProductoController extends bdUrban {
         List<Producto> datos = new ArrayList<>();
         Cursor act = null;
 
-        act = database.rawQuery("SELECT * FROM Producto WHERE ID_Categoria = " + id_categoria, null);
+        act = database.rawQuery("SELECT * FROM Producto WHERE ID_Categoria = " + id_categoria + " GROUP BY Nombre", null);
 
         if (act.moveToFirst()){
             do{
@@ -46,7 +46,7 @@ public class ProductoController extends bdUrban {
         return datos;
     }
 
-    public List<Producto> ListarProductos(int id_categoria){
+    public List<Producto> ListarProductos(){
         bdUrban x = new ProductoController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 

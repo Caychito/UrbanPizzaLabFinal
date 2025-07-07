@@ -1,6 +1,9 @@
 package com.example.urbanpizzalab.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +12,6 @@ import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.urbanpizzalab.R;
 import com.example.urbanpizzalab.model.Producto;
 
@@ -45,7 +47,6 @@ public class BusquedaProductoAdapter extends ArrayAdapter<Producto> {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_producto, parent, false);
         }
-
         TextView nombre = convertView.findViewById(R.id.txtNombreProducto);
         TextView descripcion = convertView.findViewById(R.id.txtDescripcionProducto);
         ImageView imagen = convertView.findViewById(R.id.imgProducto);
@@ -54,12 +55,24 @@ public class BusquedaProductoAdapter extends ArrayAdapter<Producto> {
         descripcion.setText(producto.getDescripcion());
 
         if (producto.getImagenURL() != null && !producto.getImagenURL().isEmpty()) {
-            Glide.with(context).load(producto.getImagenURL()).into(imagen);
-        } else {
-            imagen.setImageResource(R.drawable.pizza); // imagen por defecto
-        }
+            String base64String = producto.getImagenURL();
 
+            Bitmap bitmap = base64ToBitmap(base64String);
+            if (bitmap != null) {
+                imagen.setImageBitmap(bitmap);
+            }
+        }
         return convertView;
+    }
+
+    private Bitmap base64ToBitmap(String base64Str) {
+        try {
+            byte[] decodedBytes = Base64.decode(base64Str, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

@@ -11,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.urbanpizzalab.R;
 
 public class detalle_producto extends AppCompatActivity {
-
+    public Integer id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

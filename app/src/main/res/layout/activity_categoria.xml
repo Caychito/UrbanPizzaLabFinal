@@ -7,6 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".view.categoria">
 
+    <TextView
+        android:id="@+id/titulo3"
+        android:layout_width="291dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/adlam_display"
+        android:rotation="0"
+        android:rotationX="0"
+        android:text="Nuestros Productos"
+        android:textColor="#FF5722"
+        android:textColorHighlight="#A84A4A"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.036" />
+
     <FrameLayout
         android:id="@+id/contenedorFooter"
         android:layout_width="388dp"
@@ -37,12 +55,13 @@
         app:layout_constraintVertical_bias="0.021" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcl_Productos"
         android:layout_width="377dp"
         android:layout_height="541dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.397" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

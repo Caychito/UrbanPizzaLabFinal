@@ -1,6 +1,9 @@
 package com.example.urbanpizzalab.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +41,23 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
 
         holder.txtNombre.setText(producto.getNombre());
         holder.txtDescripcion.setText(producto.getDescripcion());
-        holder.txtPrecio.setText("S/ " + producto.getPrecio());
 
-        // Obtener imagen desde drawable
-        int idImagen = context.getResources().getIdentifier(
-                producto.getImagenURL(), "drawable", context.getPackageName());
-        holder.imgProducto.setImageResource(idImagen);
+        String base64String = producto.getImagenURL();
+
+        Bitmap bitmap = base64ToBitmap(base64String);
+        if (bitmap != null) {
+            holder.imgProducto.setImageBitmap(bitmap);
+        }
+    }
+
+    private Bitmap base64ToBitmap(String base64Str) {
+        try {
+            byte[] decodedBytes = Base64.decode(base64Str, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
